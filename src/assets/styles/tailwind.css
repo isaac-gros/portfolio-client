@@ -1,3 +1,72 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    background-color: #1F1F1F;
+}
+
+/* Typo */
+h1, h2, h3, p, a {
+    @apply text-white;
+}
+
+.title {
+    @apply text-5xl md:text-7xl;
+}
+
+
+/* Menus */
+.nav-links {
+    @apply flex py-7;
+}
+
+.nav-link {
+    @apply ml-24;
+}
+
+.link-hover {
+    @apply relative inline-block py-3 text-lg;
+}
+
+.link-hover::after {
+    @apply absolute w-0 bottom-0 left-0 bg-white;
+    content: '';
+    height: 3px;
+    transition: all 0.2s ease-in-out;
+}
+
+.link-hover:hover::after {
+    width: 45%;
+}
+
+.router-link-active.link-hover::after {
+    width: 75% !important;
+}
+
+
+.social-links {
+    @apply flex self-end;
+}
+
+.social-links li {
+    @apply ml-14;
+}
+
+
+/* Home */
+.home-container {
+    @apply absolute left-0 right-0 bottom-0 flex flex-col;
+    top: 52.5%;
+    transform: translateY(-50%);
+}
+
+.home-article {
+    @apply flex-col justify-between text-4xl text-white pt-6 pb-10;
+    max-width: 80%;
+}
+
+.home-article p {
+    @apply py-8 my-7;
+    line-height: 150%;
+}
