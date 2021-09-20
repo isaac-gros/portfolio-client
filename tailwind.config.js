@@ -174,7 +174,11 @@ module.exports = {
       150: '1.5',
       200: '2',
     },
-    container: {},
+    container: {
+      padding: {
+        DEFAULT: '1rem'
+      },
+    },
     content: {
       none: 'none',
     },

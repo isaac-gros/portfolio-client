@@ -4,6 +4,7 @@
 
 body {
     background-color: #1F1F1F;
+    overflow-x: hidden;
 }
 
 /* Typo */
@@ -12,7 +13,7 @@ h1, h2, h3, p, a {
 }
 
 .title {
-    @apply text-5xl md:text-7xl;
+    @apply text-4xl md:text-6xl;
 }
 
 
@@ -26,7 +27,7 @@ h1, h2, h3, p, a {
 }
 
 .link-hover {
-    @apply relative inline-block py-3 text-lg;
+    @apply relative inline-block py-3 text-base;
 }
 
 .link-hover::after {
@@ -62,11 +63,45 @@ h1, h2, h3, p, a {
 }
 
 .home-article {
-    @apply flex-col justify-between text-4xl text-white pt-6 pb-10;
+    @apply flex-col justify-between text-xl md:text-3xl text-white pt-6 pb-10;
     max-width: 80%;
+    min-height: 50vh;
 }
 
 .home-article p {
-    @apply py-8 my-7;
+    @apply py-8 mb-7;
     line-height: 150%;
+}
+
+
+/* Scrolling text */
+.scrolling-text-cache {
+    @apply relative;
+}
+
+.scrolling-text-cache::before,
+.scrolling-text-cache::after {
+    @apply absolute top-0 bottom-0 w-full;
+    content: '';
+    background-color: #1F1F1F;
+    z-index: 1;
+}
+
+.scrolling-text-cache::before {
+    left: 100%;
+    transform: translateX(50%);
+}
+
+.scrolling-text-cache::after {
+    right: 100%;
+    transform: translateX(-50%);
+}
+
+.scrolling-text {
+    @apply text-white uppercase mr-5 opacity-30;
+    font-weight: 900;
+}
+
+.scrolling-text.highlight {
+    @apply opacity-100;
 }
