@@ -18,8 +18,12 @@ h1, h2, h3, p, a {
 
 
 /* Menus */
+header {
+    @apply fixed top-0 right-0 left-0;
+}
+
 .nav-links {
-    @apply flex py-7;
+    @apply flex py-5;
 }
 
 .nav-link {
@@ -27,7 +31,7 @@ h1, h2, h3, p, a {
 }
 
 .link-hover {
-    @apply relative inline-block py-3 text-base;
+    @apply relative inline-block py-3 text-base text-lg;
 }
 
 .link-hover::after {
@@ -47,7 +51,7 @@ h1, h2, h3, p, a {
 
 
 .social-links {
-    @apply flex self-end;
+    @apply flex self-end absolute top-full;
 }
 
 .social-links li {
@@ -56,27 +60,29 @@ h1, h2, h3, p, a {
 
 
 /* Home */
-.home-container {
-    @apply absolute left-0 right-0 bottom-0 flex flex-col;
-    top: 52.5%;
-    transform: translateY(-50%);
+.intro {
+    @apply flex flex-col justify-center;
+    min-height: 100vh;
 }
 
-.home-article {
-    @apply flex-col justify-between text-xl md:text-3xl text-white pt-6 pb-10;
+.intro-container {
+    @apply flex flex-col justify-center relative;
+}
+
+.intro-article {
+    @apply flex-col justify-between text-xl md:text-3xl text-white py-7;
     max-width: 80%;
-    min-height: 50vh;
 }
 
-.home-article p {
-    @apply py-8 mb-7;
+.intro-article p {
+    @apply py-7;
     line-height: 150%;
 }
 
 
 /* Scrolling text */
 .scrolling-text-cache {
-    @apply relative;
+    @apply relative p-0 container m-auto py-2;
 }
 
 .scrolling-text-cache::before,

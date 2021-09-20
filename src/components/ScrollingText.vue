@@ -1,6 +1,6 @@
 <template>
-  <div class="container m-auto scrolling-text-cache">
-    <div class="scrolling-text-container flex">
+  <div class="scrolling-text-cache">
+    <div class="flex">
       <span
         v-for="number in parseInt(repeat)"
         :key="number"
