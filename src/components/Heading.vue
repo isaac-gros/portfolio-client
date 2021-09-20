@@ -5,18 +5,17 @@
         <span class="title">{{ title }}</span>
         <div v-html="content"></div>
       </article>
-      <ul class="social-links" v-if="displayLinks">
-        <li><router-link class="link-hover" to="/about" v-if="displayAboutLink">About</router-link></li>
-        <li><a class="link-hover" href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a class="link-hover" href="https://github.com" target="_blank" rel="noopener">Github</a></li>
-      </ul>
+      <BottomMenu v-if="displayLinks" :displayAboutLink="displayAboutLink" />
     </div>
   </div>
 </template>
 
 <script>
+import BottomMenu from './BottomMenu.vue';
+
 export default {
   name: 'Heading',
+  components: { BottomMenu },
   props: {
     title: String,
     content: String,

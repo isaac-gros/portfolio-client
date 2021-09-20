@@ -2,7 +2,7 @@
   <div class="scrolling-text-cache">
     <div class="flex">
       <span
-        v-for="number in parseInt(repeat)"
+        v-for="number in repeat"
         :key="number"
         class="scrolling-text text-3xl md:text-5xl"
         :class="highlightText(number) ? 'highlight' : ''"

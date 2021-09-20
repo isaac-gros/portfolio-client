@@ -5,7 +5,7 @@
     :displayLinks="true"
     :displayAboutLink="true"
   />
-  <ScrollingText repeat="8" word="Projects"/>
+  <ScrollingText :repeat="8" word="Projects"/>
 </template>
 
 <script>
