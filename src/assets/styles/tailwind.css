@@ -137,8 +137,22 @@ header {
     @apply flex transition-all items-center uppercase pt-8 pb-4;
 }
 
-/* Responsives */
 
+/* Footer */
+footer {
+    @apply container m-auto flex flex-col justify-center text-white mb-16;
+    min-height: 30vh;
+}
+
+.footer-container {
+    @apply relative flex flex-col;
+}
+
+.footer-message {
+    @apply text-right inline-block self-start ml-12 md:ml-24 pt-3 pb-16;
+}
+
+/* Responsive */
 @screen md {
     .ionicon {
         width: 50px;

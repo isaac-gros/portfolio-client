@@ -3,7 +3,7 @@
     title="An interesting title." 
     content="<p>Well hello there. This is some fake text.</p>"
     :displayLinks="true"
-    :displayAboutLink="true"
+    :displayAboutLink="false"
   />
   <ScrollingText :repeat="8" word="Projects"/>
   <ProjectsList/>
