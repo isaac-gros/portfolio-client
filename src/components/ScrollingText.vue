@@ -4,7 +4,7 @@
       <span
         v-for="number in repeat"
         :key="number"
-        class="scrolling-text text-3xl md:text-5xl"
+        class="scrolling-text"
         :class="highlightText(number) ? 'highlight' : ''"
       >
 			{{ word }}

@@ -7,6 +7,10 @@ body {
     overflow-x: hidden;
 }
 
+.ionicon {
+    width: 30px;
+}
+
 /* Typo */
 h1, h2, h3, p, a {
     @apply text-white;
@@ -82,7 +86,7 @@ header {
 
 /* Scrolling text */
 .scrolling-text-cache {
-    @apply relative p-0 container m-auto py-2;
+    @apply relative p-0 container m-auto pt-2;
 }
 
 .scrolling-text-cache::before,
@@ -104,10 +108,39 @@ header {
 }
 
 .scrolling-text {
-    @apply text-white uppercase mr-5 opacity-30;
+    @apply text-white uppercase mr-5 opacity-30 text-3xl md:text-6xl;
     font-weight: 900;
 }
 
 .scrolling-text.highlight {
     @apply opacity-100;
+}
+
+/* Projects */
+.projects-list-container {
+    @apply flex flex-col py-16 container m-auto;
+}
+
+.project-element {
+    border-bottom: 1px solid white;
+}
+
+.project-element-container {
+    @apply flex justify-between items-center md:items-start;
+}
+
+.project-element-recap {
+    @apply pt-8 pb-4 flex-grow;
+}
+
+.project-element-link {
+    @apply flex transition-all items-center uppercase pt-8 pb-4;
+}
+
+/* Responsives */
+
+@screen md {
+    .ionicon {
+        width: 50px;
+    }
 }
