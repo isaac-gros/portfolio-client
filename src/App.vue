@@ -1,19 +1,38 @@
 <template>
   <Header />
   <main>
-    <router-view></router-view>
+    <router-view
+      :isLoading="isLoading" 
+      :startLoading="startLoading" 
+      :finishLoading="finishLoading"></router-view>
   </main>
   <Footer />
+  <LoadingScreen :isLoading="isLoading"/>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
+import LoadingScreen from "./components/LoadingScreen.vue";
 
 export default {
   components: {
     Header,
     Footer,
+    LoadingScreen
   },
+  data() {
+    return {
+      isLoading: null
+    }
+  },
+  methods: {
+    startLoading() {
+      this.isLoading = true;
+    },
+    finishLoading() {
+      this.isLoading = false;
+    }
+  }
 };
 </script>
