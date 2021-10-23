@@ -28,10 +28,14 @@ export default {
   },
   methods: {
     startLoading() {
-      this.isLoading = true;
+      if(this.isLoading != true) {
+        this.isLoading = true
+      }
     },
     finishLoading() {
-      this.isLoading = false;
+      if(this.isLoading != false) {
+        this.isLoading = false
+      }
     }
   }
 };

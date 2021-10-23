@@ -6,7 +6,7 @@
     :displayAboutLink="false"
   />
   <ScrollingText :repeat="8" word="Projects"/>
-  <ProjectsList/>
+  <ProjectsList :projects="projects"/>
 </template>
 
 <script>
@@ -48,12 +48,27 @@ export default {
       equals: 'accueil'
     }).then(content => {
       let pageContent = content[0];
+
+      // Update intro
       this.content.headingTitle = pageContent.title.rendered;
       this.content.headingText = pageContent.acf.contenu;
-      this.finishLoading();
-    }).catch(error => {
+
+      // Fetch projects
+      ApiService.get('project', {
+        param: 'status',
+        equals: 'publish'
+      })
+      .then(projects => {
+        this.projects = projects
+        this.finishLoading()
+      }).catch(projectsError => {
+        console.log(projectsError)
+        this.finishLoading()
+      })
+
+    }).catch(homeError => {
       // TODO
-      // this.$router.push({name: 'error', params: { status: 500, message: error.message}});
+      // this.$router.push({name: 'error', params: { status: 500, message: homeError.message}});
       this.finishLoading();
     });
   },

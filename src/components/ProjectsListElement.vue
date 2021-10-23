@@ -1,16 +1,16 @@
 <template>
   <router-link
-    to="?"
+    :to="{name: 'Project', params: { slug: slug }}"
     class="project-element-container"
     @mouseenter="hover = true"
     @mouseleave="hover = false"
   >
     <div class="project-element-recap">
-      <h2 class="text-2xl md:text-4xl">{{ project.title }}</h2>
+      <h2 class="text-2xl md:text-4xl">{{ title }}</h2>
       <p
         class="flex transition-all py-3"
         :class="hover ? 'md:visible md:py-3' : 'md:invisible md:py-0' ">
-        {{ project.desc }}
+        {{ resume }}
       </p>
     </div>
     <div class="project-element-link" :class="hover ? 'md:visible' : 'md:invisible' ">
@@ -30,7 +30,21 @@ export default {
 		project: Object,
 		index: Number,
 		hover: Boolean,
-	}
+	},
+  data() {
+    return {
+      title: '',
+      resume: '',
+      slug: '',
+    }
+  },
+  mounted() {
+    if(this.project !== null) {
+      this.title = this.project.title.rendered,
+      this.resume = this.project.acf.resume,
+      this.slug = this.project.slug
+    }
+  }
 };
 </script>
 
