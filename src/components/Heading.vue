@@ -2,8 +2,20 @@
   <div class="intro container m-auto">
     <div class="intro-container">
       <article class="intro-article">
-        <span class="title">{{ title }}</span>
-        <div v-html="content"></div>
+        <div class="intro-article-text">
+          <div v-if="semanticTitle">
+            <h1 class="title">{{ title }}</h1>
+          </div>
+          <div v-else>
+            <span class="title">{{ title }}</span>
+          </div>
+          <div v-html="content"></div>
+        </div>
+        <div 
+          v-if="image !== ''" 
+          class="intro-article-image" 
+          :style="`background-image: url('${image}');`">
+        </div>
       </article>
       <BottomMenu v-if="displayLinks" :displayAboutLink="displayAboutLink" />
     </div>
@@ -18,9 +30,12 @@ export default {
   components: { BottomMenu },
   props: {
     title: String,
+    semanticTitle: Boolean,
     content: String,
     displayLinks: Boolean,
-    displayAboutLink: Boolean, 
+    displayAboutLink: Boolean,
+    image: String,
+    imageAlt: String 
   }
 }
 </script>

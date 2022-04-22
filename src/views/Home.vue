@@ -1,12 +1,14 @@
 <template>
-  <Heading 
-    :title="content.headingTitle" 
-    :content="content.headingText"
-    :displayLinks="true"
-    :displayAboutLink="false"
-  />
-  <ScrollingText :repeat="8" word="Projects"/>
-  <ProjectsList :projects="projects"/>
+  <div>
+    <Heading 
+      :title="content.headingTitle" 
+      :content="content.headingText"
+      :displayLinks="true"
+      :displayAboutLink="false"
+    />
+    <ScrollingText :repeat="8" word="Projects"/>
+    <ProjectsList :projects="projects"/>
+  </div>
 </template>
 
 <script>

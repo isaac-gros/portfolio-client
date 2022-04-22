@@ -28,7 +28,7 @@ h1, h2, h3, p, a {
 }
 
 .title {
-    @apply text-4xl md:text-6xl;
+    @apply text-2xl md:text-4xl;
 }
 
 
@@ -46,7 +46,7 @@ header {
 }
 
 .link-hover {
-    @apply relative inline-block py-3 text-base text-lg;
+    @apply relative inline-block py-3 text-lg;
 }
 
 .link-hover::after {
@@ -85,8 +85,21 @@ header {
 }
 
 .intro-article {
-    @apply flex-col justify-between text-xl md:text-3xl text-white py-7;
-    max-width: 80%;
+    @apply flex justify-between text-xl md:text-3xl text-white py-7 relative;
+}
+
+.intro-article-text {
+    @apply z-10;
+    width: 75%;
+}
+
+.intro-article-image {
+    @apply absolute top-0 right-0 z-0 bg-cover bg-center;
+    transform: translateY(-50%);
+    width: 350px;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
 }
 
 .intro-article p {

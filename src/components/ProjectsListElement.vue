@@ -35,7 +35,7 @@ export default {
     return {
       title: '',
       resume: '',
-      slug: '',
+      slug: ' ',
     }
   },
   mounted() {
