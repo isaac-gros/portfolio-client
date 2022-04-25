@@ -1,6 +1,7 @@
 <template>
   <div class="intro container m-auto">
-    <div class="intro-container">
+    <!-- TODO : Clean up this misery -->
+    <div class="intro-container" :style="`position: ${displayLinks ? 'relative' : 'static'}; padding-top: ${content.length > 240 ? '25vh' : '0'};`">
       <article class="intro-article">
         <div class="intro-article-text">
           <div v-if="semanticTitle">

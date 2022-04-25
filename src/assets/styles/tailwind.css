@@ -77,11 +77,12 @@ header {
 /* Home */
 .intro {
     @apply flex flex-col justify-center;
-    min-height: 100vh;
+    min-height: 97vh;
 }
 
 .intro-container {
-    @apply flex flex-col justify-center relative;
+    min-height: 50vh;
+    @apply flex flex-col justify-center;
 }
 
 .intro-article {
@@ -161,6 +162,22 @@ header {
     @apply flex transition-all items-center uppercase pt-8 pb-4;
 }
 
+/* Gallery */
+.gallery {
+    @apply flex justify-between flex-wrap py-16;
+}
+
+.gallery-element {
+    width: 50%;
+    min-height: 250px;
+    height: 30vh;
+    @apply px-4 mb-8;
+}
+
+.gallery-element-image {
+    background-size: 100%;
+    @apply w-full h-full bg-center bg-cover bg-no-repeat;
+}
 
 /* Footer */
 footer {
