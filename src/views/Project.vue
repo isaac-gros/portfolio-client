@@ -57,5 +57,8 @@ export default {
         this.finishLoading();
       });
   },
+  beforeUnmount() {
+    this.startLoading();
+  }
 };
 </script>

@@ -1,13 +1,15 @@
 <template>
-  <Header />
-  <main>
-    <router-view
-      :isLoading="isLoading" 
-      :startLoading="startLoading" 
-      :finishLoading="finishLoading"></router-view>
-  </main>
-  <Footer />
-  <LoadingScreen :isLoading="isLoading"/>
+  <div>
+    <Header />
+    <main>
+      <router-view
+        :isLoading="isLoading" 
+        :startLoading="startLoading" 
+        :finishLoading="finishLoading"></router-view>
+    </main>
+    <Footer />
+    <LoadingScreen :isLoading="isLoading"/>
+  </div>
 </template>
 
 <script>
