@@ -7,8 +7,8 @@
       :displayLinks="false"
       :displayAboutLink="false"
     />
-    <ScrollingText :repeat="7" word="Preview"/>
-    <Gallery :images="projectImages"/>
+    <ScrollingText :repeat="7" word="Preview" />
+    <Gallery :images="projectImages" />
   </section>
 </template>
 
@@ -22,11 +22,6 @@ import ApiService from "../services/ApiService";
 export default {
   components: { Heading, ScrollingText, Gallery },
   name: "Project",
-  props: {
-    isLoading: Boolean,
-    startLoading: Function,
-    finishLoading: Function,
-  },
   data() {
     return {
       projectSlug: this.$route.params?.slug ?? "",
@@ -34,9 +29,6 @@ export default {
       projectContent: "",
       projectImages: [],
     };
-  },
-  beforeMount() {
-    this.startLoading();
   },
   mounted() {
     ApiService.get("project", {
@@ -50,15 +42,10 @@ export default {
         this.projectTitle = project.title.rendered;
         this.projectContent = project.acf.contenu;
         this.projectImages = project.acf.galerie;
-        this.finishLoading();
       })
       .catch((projectError) => {
         console.log(projectError);
-        this.finishLoading();
       });
   },
-  beforeUnmount() {
-    this.startLoading();
-  }
 };
 </script>
