@@ -12,13 +12,15 @@ body {
 }
 
 .loading-screen {
-    @apply fixed top-0 bottom-0 left-0 z-50 flex justify-center items-center text-center text-white;
-    transform-origin: center left;
+    @apply fixed top-0 bottom-0 left-0 z-50 flex justify-center items-center text-center text-white w-full opacity-100 z-50;
+    transition: all 0.4s ease-out;
     background-color: #1F1F1F;
-    background-color: red;
-    opacity: 0;
 }
 
+.loading-screen.hidden {
+    @apply opacity-0 z-0;
+    transform: scale(0);
+}
 
 /* Typo */
 h1, h2, h3, p, a {
@@ -32,7 +34,7 @@ h1, h2, h3, p, a {
 
 /* Menus */
 header {
-    @apply fixed top-0 right-0 left-0;
+    @apply fixed top-0 right-0 left-0 z-10;
 }
 
 .nav-links {
@@ -106,10 +108,14 @@ header {
     line-height: 150%;
 }
 
+.intro-article p:last-of-type {
+    @apply pb-0;
+}
+
 
 /* Scrolling text */
 .scrolling-text-cache {
-    @apply relative p-0 container m-auto pt-2;
+    @apply relative p-0 container m-auto mt-4 pt-2;
 }
 
 .scrolling-text-cache::before,
@@ -162,14 +168,12 @@ header {
 
 /* Gallery */
 .gallery {
-    @apply flex justify-between flex-wrap py-16;
+    @apply my-16 gap-x-8;
+    column-count: 2;
 }
 
 .gallery-element {
-    width: 50%;
-    min-height: 250px;
-    height: 30vh;
-    @apply px-4 mb-8;
+    @apply mb-8;
 }
 
 .gallery-element-image {
