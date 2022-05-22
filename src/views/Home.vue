@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <section>
     <Heading
       :title="content.headingTitle"
       :content="content.headingText"
@@ -8,15 +8,14 @@
     />
     <ScrollingText :repeat="8" word="Projects" />
     <ProjectsList :projects="projects" />
-  </div>
+  </section>
 </template>
 
 <script>
+import ApiService from "../services/ApiService";
 import ScrollingText from "../components/ScrollingText.vue";
 import ProjectsList from "../components/ProjectsList.vue";
 import Heading from "../components/Heading.vue";
-
-import ApiService from "../services/ApiService";
 
 export default {
   name: "Home",
@@ -36,34 +35,22 @@ export default {
       projects: [],
     };
   },
-  mounted() {
-    ApiService.get("pages", {
-      param: "slug",
-      equals: "accueil",
-    })
-      .then((content) => {
-        let pageContent = content[0];
-
-        // Update intro
-        this.content.headingTitle = pageContent.title.rendered;
-        this.content.headingText = pageContent.acf.contenu;
-
-        // Fetch projects
-        ApiService.get("project", {
-          param: "status",
-          equals: "publish",
-        })
-          .then((projects) => {
-            this.projects = projects;
-          })
-          .catch((projectsError) => {
-            console.log(projectsError);
-          });
+  async mounted() {
+    try {
+      let homePage = await ApiService.get("pages", {
+        param: "slug",
+        equals: "accueil",
       })
-      .catch((homeError) => {
-        // TODO
-        // this.$router.push({name: 'error', params: { status: 500, message: homeError.message}});
-      });
+      let pageContent = homePage[0];
+
+      // Update intro
+      this.content.headingTitle = pageContent.title.rendered;
+      this.content.headingText = pageContent.acf.contenu;
+      this.projects = this.$store.getters.getProjects;
+    } catch(error) {
+      // TODO
+      // this.$router.push({name: 'error', params: { status: 500, message: homeError.message}});
+    }
   },
 };
 </script>
