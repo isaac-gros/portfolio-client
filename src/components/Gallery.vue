@@ -5,6 +5,9 @@
         <img class="gallery-element-image" :src="image.sizes.large">
       </div>
     </div>
+    <div class="gallery-subtitle">
+      <p>{{ subtitle }}</p>
+    </div>
   </div>
 </template>
 
@@ -13,6 +16,7 @@ export default {
   name: "Gallery",
   props: {
     images: Array,
+    subtitle: String
   }
 };
 </script>

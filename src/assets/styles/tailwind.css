@@ -181,6 +181,10 @@ header {
     @apply w-full h-full bg-center bg-cover bg-no-repeat;
 }
 
+.gallery-subtitle {
+    @apply mb-4 text-xl text-center;
+}
+
 /* Footer */
 footer {
     @apply container m-auto flex flex-col justify-center text-white mb-16;
