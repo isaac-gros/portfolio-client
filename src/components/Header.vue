@@ -2,7 +2,7 @@
   <header>
     <nav class="container m-auto">
       <ul class="nav-links">
-        <li>
+        <li class="nav-link">
           <router-link to="/" class="link-hover">Home</router-link>
         </li>
         <li class="nav-link">

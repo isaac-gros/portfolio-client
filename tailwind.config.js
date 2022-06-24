@@ -10,6 +10,12 @@ module.exports = {
       md: '768px',
       lg: '1024px',
     },
+    extend: {
+      fontFamily: {
+       Work: ["Work Sans", "swap"],
+       Roboto: ["Roboto", "sans-serif"],
+      },
+    },
     colors: {
       transparent: 'transparent',
       current: 'currentColor',

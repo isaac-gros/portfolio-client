@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&family=Work+Sans:wght@300;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,12 +25,18 @@ body {
 }
 
 /* Typo */
+* {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 300;
+}
+
 h1, h2, h3, p, a {
     @apply text-white;
 }
 
 .title {
     @apply text-2xl md:text-4xl;
+    font-weight: 500;
 }
 
 
@@ -41,7 +49,7 @@ header {
     @apply flex py-5;
 }
 
-.nav-link {
+.nav-link:not(:first-of-type) {
     @apply ml-24;
 }
 
@@ -138,6 +146,7 @@ header {
 
 .scrolling-text {
     @apply text-white uppercase mr-5 opacity-30 text-3xl md:text-6xl;
+    font-family: "Roboto", "Work Sans", sans-serif;
     font-weight: 900;
 }
 

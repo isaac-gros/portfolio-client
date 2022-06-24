@@ -36,7 +36,6 @@ export default {
       let min = Math.ceil(0);
       let max = Math.floor(messages.length - 1);
       let randIndex = Math.floor(Math.random() * (max - min + 1)) + min;
-			console.log(randIndex)
       this.message = messages[randIndex];
     },
   },
