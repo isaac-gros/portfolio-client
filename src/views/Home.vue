@@ -6,7 +6,7 @@
       :displayLinks="true"
       :displayAboutLink="false"
     />
-    <ScrollingText :repeat="8" word="Projects" />
+    <ScrollingText :repeat="8" word="Projects" :auto="true" />
     <ProjectsList :projects="projects" />
   </section>
 </template>
@@ -46,7 +46,9 @@ export default {
       // Update intro
       this.content.headingTitle = pageContent.title.rendered;
       this.content.headingText = pageContent.acf.contenu;
-      this.projects = this.$store.getters.getProjects;
+      
+      let storeProjects = this.$store.getters.getProjects;
+      this.projects = (storeProjects.length > 0) ? storeProjects : await this.fetchProjects();
     } catch(error) {
       // TODO
       // this.$router.push({name: 'error', params: { status: 500, message: homeError.message}});

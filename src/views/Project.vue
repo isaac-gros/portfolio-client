@@ -7,7 +7,7 @@
       :displayLinks="false"
       :displayAboutLink="false"
     />
-    <ScrollingText :repeat="7" word="Preview" />
+    <ScrollingText :repeat="8" word="Preview" :auto="true"/>
     <Gallery :images="projectImages" :subtitle="subtitle" />
     <ProjectsList :projects="otherProjects" />
   </section>
@@ -52,13 +52,13 @@ export default {
       ];
       return sentences.at(Math.floor(Math.random() * sentences.length));
     },
-    updateProject: function () {
+    updateProject: async function () {
       // Update project content
       ApiService.get("project", {
         param: "slug",
         equals: this.projectSlug,
       })
-        .then((response) => {
+        .then(async (response) => {
           let project = response[0];
           let image = project.acf.galerie.image_1;
           this.projectTitle = project.title.rendered;
@@ -66,8 +66,9 @@ export default {
           this.projectImages = project.acf.galerie;
 
           // Update other projects list
-          let projectsStore = this.$store.getters.getProjects;
-          this.otherProjects = projectsStore.filter(
+          let storeProjects = this.$store.getters.getProjects;
+          storeProjects = (storeProjects.length > 0) ? storeProjects : await this.fetchProjects();
+          this.otherProjects = storeProjects.filter(
             (el) => el.id != project.id
           );
 

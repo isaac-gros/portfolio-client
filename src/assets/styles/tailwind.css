@@ -85,7 +85,7 @@ header {
 /* Home */
 .intro {
     @apply flex flex-col justify-center;
-    min-height: 97vh;
+    min-height: 95vh;
 }
 
 .intro-container {
@@ -144,9 +144,9 @@ header {
     transform: translateX(-50%);
 }
 
-.scrolling-text {
+.scrolling-text--word {
     @apply text-white uppercase mr-5 opacity-30 text-3xl md:text-6xl;
-    font-family: "Roboto", "Work Sans", sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: 900;
 }
 
@@ -173,6 +173,11 @@ header {
 
 .project-element-link {
     @apply flex transition-all items-center uppercase pt-8 pb-4;
+}
+
+#projects-list {
+    padding-top: 20vh;
+    min-height: 100vh;
 }
 
 /* Gallery */
