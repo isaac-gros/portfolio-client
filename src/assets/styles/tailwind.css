@@ -102,15 +102,6 @@ header {
     width: 75%;
 }
 
-.intro-article-image {
-    @apply absolute top-0 right-0 z-0 bg-cover bg-center;
-    transform: translateY(-50%);
-    width: 350px;
-    height: 250px;
-    background-size: cover;
-    background-position: center;
-}
-
 .intro-article p {
     @apply py-7;
     line-height: 150%;
@@ -198,6 +189,17 @@ header {
 .gallery-subtitle {
     @apply mb-4 text-xl text-center;
 }
+
+/* About */
+.intro-fluid .intro-container {
+    padding-top: 10vh !important;
+}
+
+.intro-article-image img {
+    @apply w-auto;
+    height: 50vh;
+}
+
 
 /* Footer */
 footer {

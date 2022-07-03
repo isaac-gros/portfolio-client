@@ -1,5 +1,5 @@
 <template>
-  <div class="intro container m-auto">
+  <div class="intro" :class="(containerFluid) ? 'intro-fluid' : 'container m-auto'">
     <!-- TODO : Clean up this misery -->
     <div class="intro-container" :style="`position: ${displayLinks ? 'relative' : 'static'}; padding-top: ${content.length > 240 ? '25vh' : '0'};`">
       <article class="intro-article">
@@ -12,10 +12,10 @@
           </div>
           <div v-html="content"></div>
         </div>
-        <div 
-          v-if="image !== ''" 
-          class="intro-article-image" 
-          :style="`background-image: url('${image}');`">
+        <div class="intro-article-image">
+          <img 
+            v-if="image !== ''"
+            :src="image">
         </div>
       </article>
       <BottomMenu v-if="displayLinks" :displayAboutLink="displayAboutLink" />
@@ -36,7 +36,8 @@ export default {
     displayLinks: Boolean,
     displayAboutLink: Boolean,
     image: String,
-    imageAlt: String 
+    imageAlt: String,
+    containerFluid: Boolean
   }
 }
 </script>
